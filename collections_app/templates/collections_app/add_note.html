@@ -1,0 +1,29 @@
+{% load crispy_forms_tags %}
+
+<form method="POST" class="add-note-form" id="add-note-form">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="form-group">
+        {{ form.note_title.errors }}
+        <label for="{{ form.note_title.id_for_label }}">Note Title</label>
+        {{ form.note_title }}
+    </div>
+
+    <div class="form-group">
+        {{ form.note.errors }}
+        <label for="{{ form.note.id_for_label }}">Note</label>
+        {{ form.note }}
+    </div>
+
+    <div class="form-group">
+        {{ form.note_date.errors }}
+        <label for="{{ form.note_date.id_for_label }}">Note Date</label>
+        {{ form.note_date }}
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" id="close-btn" class="btn close-btn">Close</button>
+        <button type="submit" class="btn save-btn">Save Note</button>
+    </div>
+</form>
