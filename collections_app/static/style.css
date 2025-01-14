@@ -7,10 +7,15 @@ body {
     margin-top: 3em;
     padding: 0;
     box-sizing: border-box;
-    background-color: #e2efe7;
+    background-color: #949393;
     overflow-y: auto;
     height: 100%;
     scroll-behavior: smooth;
+}
+
+body h1 {
+    color: #151515;
+    text-shadow: 2px 2px 5px rgba(253, 234, 234, 0.8);
 }
 
 /* Main container */
@@ -46,7 +51,7 @@ body {
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 15px;
-    color: #333;
+    color: #323232;
 }
 
 /* Scrollable notes/transactions/plans */
@@ -70,27 +75,27 @@ body {
 .note-box h3 {
     font-size: 1.2em;
     margin-bottom: 5px;
-    color: #175e1e;
+    color: #323232;
 }
 
 .note-box p, .transaction-box p, .plan-box p {
     margin: 5px 0;
     font-size: 0.9em;
-    color: #555;
+    color: #5a5a5a;
 }
 
 .view-btn {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #6abb6d;
+    background-color: #a01b1b;
     color: white;
     border: none;
     border-radius: 5px;
 }
 
 .view-btn:hover {
-    background-color: #6abb6d;
+    background-color: #a01b1b;
 }
 
 /* Modal Styles */
@@ -122,11 +127,13 @@ body {
 
 .modal-header h5 {
     font-size: 1.5em;
-    color: #175e1e;
+    color: #323232;
     font-weight: bold;
 }
 
 .modal-header .close-btn {
+    background-color: #e2e2e2;
+    color: #ad5454;
     border: none;
     font-size: 25px;
     cursor: pointer;
@@ -134,13 +141,14 @@ body {
 
 .close-btn:hover,
 .close-btn:focus {
-    color: black;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .modal-header .save-btn {
-    background-color: #306632;
+    background-color: #a01b1b;
     color: #e2e2e2;
     font-size: 28px;
     font-weight: bold;
@@ -149,9 +157,10 @@ body {
 
 .save-btn:hover,
 .save-btn:focus {
-    color: black;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
+    font-weight: bold;
 }
 
 #modal-body {
@@ -175,7 +184,7 @@ textarea {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #306632;
+    background-color: #a01b1b;
     color: #e2e2e2;
     border: none;
     border-radius: 5px;
@@ -184,5 +193,7 @@ button {
 }
 
 button:hover {
-    background-color: #6abb6d;
+    background-color: #ad5454;
+    color: #fff;
+    font-weight: bold;
 }
