@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class CollectorNote(models.Model):
-    note_title = models.CharField(max_length=50, default='Untitled')
+    note_title = models.CharField(max_length=50)
     note_date = models.DateTimeField(default=date.today)
     note = models.CharField(max_length=255)
 

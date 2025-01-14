@@ -8,45 +8,56 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <h1>Collector Notes</h1>
-    <div id="collector-notes" class="notes-box">
-        <div class="scrollable-notes">
-            {% for note in notes %}
-                <div class="note-box">
-                    <h3>{{ note.note_title }}</h3>
-                    <p>{{ note.note }}</p>
-                    <p><small>{{ note.note_date }}</small></p>
-                </div>
-            {% endfor %}
+    <h1>Collections Dashboard</h1>
+    <div class="database-tables">
+        <div class="table-column" id="collector-notes">
+            <h2>Collector Notes</h2>
+            <div class="scrollable-notes">
+                {% for note in notes %}
+                    <div class="note-box">
+                        <h3>{{ note.note_title }}</h3>
+                        <p>{{ note.note }}</p>
+                        <p><small>{{ note.note_date }}</small></p>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Button to trigger the Add Note modal -->
+            <button id="open-modal-btn" type="button">Add Note</button>
+        </div>
+    
+        <div class="table-column" id="transactions">
+            <h2>Customer Transactions</h2>
+            <div class="scrollable-notes">
+                {% for transaction in transactions %}
+                    <div class="transaction-box">
+                        <p><strong>Date:</strong> {{ transaction.transaction_date }}</p>
+                        <p><strong>Amount Due:</strong> ${{ transaction.monthly_amount_due }}</p>
+                        <p><strong>Amount Paid:</strong> ${{ transaction.amount_paid }}</p>
+                        <p><strong>Status:</strong> {{ transaction.status }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+        <div class="table-column" id="payment-plans">
+            <h2>Payment Plans</h2>
+            <div class="scrollable-notes">
+                {% for plan in plans %}
+                    <div class="plan-box">
+                        <p><strong>Plan Name:</strong> {{ plan.plan_name }}</p>
+                        <p><strong>Amount:</strong> ${{ plan.amount }}</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 
-    <h1>Customer Transactions</h1>
-    <div id="transactions">
-        {% for transaction in transactions %}
-            <p>{{ transaction.transaction_date }}: ${{ transaction.amount }}</p>
-        {% endfor %}
-    </div>
-
-    <h1>Payment Plans</h1>
-    <div id="payment-plans">
-        {% for plan in plans %}
-            <p>{{ plan.plan_name }}: ${{ plan.amount }}</p>
-        {% endfor %}
-    </div>
-
-    <!-- Button to trigger the Add Note modal -->
-    <button id="open-modal-btn" type="button">Add Note</button>
-
     <!-- Add Note Modal -->
-    <div class="modal" id="addNoteModal" tabindex="-1" role="dialog" aria-labelledby="addNoteModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal" id="addNoteModal" tabindex="-1" role="dialog" aria-labelledby="addNoteModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addNoteModalLabel">Add Note</h5>
-                    <button type="button" class="close" id="close-modal-btn" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <h5 class="modal-title" id="addNoteModalLabel">Add a Note</h5>
                 </div>
                 <div class="modal-body">
                     <!-- Include the add note form -->

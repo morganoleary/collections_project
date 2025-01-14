@@ -6,12 +6,14 @@ def main(request):
     if request.method == 'POST':
         form = CollectorNoteForm(request.POST)
         if form.is_valid():
-            form.save()  # Save the note to the database
-            return redirect('main')  # Redirect to the main page to show the updated list of notes
+            # Save the note to the database
+            form.save()
+            # Redirect to the main page to show the updated list of notes
+            return redirect('main')  
     else:
         form = CollectorNoteForm()
 
-    notes = CollectorNote.objects.all()  # Get all notes
-    transactions = CustomerTransaction.objects.all()  # Get all transactions
-    plans = PaymentPlan.objects.all()  # Get all payment plans
+    notes = CollectorNote.objects.all()  
+    transactions = CustomerTransaction.objects.all()
+    plans = PaymentPlan.objects.all()
     return render(request, 'collections_app/main.html', {'form': form, 'notes': notes, 'transactions': transactions, 'plans': plans})
