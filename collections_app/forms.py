@@ -7,7 +7,8 @@ class CollectorNoteForm(forms.ModelForm):
         model = CollectorNote
         fields = ['note_title', 'note', 'note_date']
         widgets = {
-            'note_date': forms.DateTimeInput(attrs={'value': date.today()}),  # Auto set today's date 
+            'note_date': forms.DateInput(attrs={'value': date.today()}),  # Auto set today's date
+            'note_title': forms.TextInput(attrs={'placeholder': 'Untitled'}), # Title placeholder
         }
         labels = {
             'note_title': 'Note Title',

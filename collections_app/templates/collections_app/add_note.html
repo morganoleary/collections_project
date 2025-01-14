@@ -1,25 +1,31 @@
 {% load crispy_forms_tags %}
 
-<form method="POST" class="add-note-form" id="add-note-form">
+<form method="POST" class="add-note-form" id="add-note-form" novalidate>
     {% csrf_token %}
     {{ form.non_field_errors }}
 
     <div class="form-group">
-        {{ form.note_title.errors }}
         <label for="{{ form.note_title.id_for_label }}">Title: </label>
         {{ form.note_title }}
+        <div class="error-message" style="color: red;">
+            {{ form.note_title.errors }}
+        </div>
     </div>
 
     <div class="form-group">
-        {{ form.note.errors }}
         <label for="{{ form.note.id_for_label }}">Note: </label>
         {{ form.note }}
+        <div class="error-message" style="color: red;">
+            {{ form.note.errors }}
+        </div>
     </div>
 
     <div class="form-group">
-        {{ form.note_date.errors }}
         <label for="{{ form.note_date.id_for_label }}">Date: </label>
         {{ form.note_date }}
+        <div class="error-message" style="color: red;">
+            {{ form.note_date.errors }}
+        </div>
     </div>
 
     <div class="modal-footer">
